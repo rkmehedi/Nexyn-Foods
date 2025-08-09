@@ -2,15 +2,15 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router";
 import { FaSearch } from "react-icons/fa";
 
-
 const AllFood = () => {
   const [foods, setFoods] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [loading, setLoading] = useState(true);
+  const [sortOrder, setSortOrder] = useState("asc");
 
   useEffect(() => {
     setLoading(true);
-    fetch("https://nexyn-foods-server.vercel.app/foods")
+    fetch(`https://nexyn-foods-server.vercel.app/foods?sort=${sortOrder}`)
       .then((res) => res.json())
       .then((data) => {
         setFoods(data);
@@ -20,7 +20,7 @@ const AllFood = () => {
         console.error("Failed to fetch foods:", error);
         setLoading(false);
       });
-  }, []);
+  }, [sortOrder]);
 
   const filteredFoods = foods.filter((food) =>
     food.food_name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -29,7 +29,6 @@ const AllFood = () => {
   return (
     <div className="">
       <div className="hero h-37">
-        
         <div className="hero-content text-center text-neutral-content">
           <div className="max-w-md">
             <h1 className="mb-3 text-5xl font-bold text-[#004952]">
@@ -43,7 +42,7 @@ const AllFood = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 py-16">
-        <div className="flex justify-center mb-12">
+        <div className="flex flex-col md:flex-row justify-center items-center gap-4 mb-12">
           <div className="form-control w-full max-w-lg">
             <div className="relative">
               <input
@@ -60,6 +59,16 @@ const AllFood = () => {
                 <FaSearch />
               </button>
             </div>
+          </div>
+          <div className="form-control w-full max-w-xs">
+            <select
+              onChange={(e) => setSortOrder(e.target.value)}
+              className="select select-bordered"
+              value={sortOrder}
+            >
+              <option value="asc">Sort by Name (A-Z)</option>
+              <option value="desc">Sort by Name (Z-A)</option>
+            </select>
           </div>
         </div>
 
