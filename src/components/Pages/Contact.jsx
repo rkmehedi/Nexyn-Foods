@@ -71,7 +71,7 @@ const Contact = () => {
                         <form onSubmit={handleSendMessage} className="card-body">
                             <div className="form-control">
                                 <label className="label pb-1"><span className="label-text font-semibold">Your Name:</span></label>
-                                <input type="text" name="name" placeholder="John Doe" className="input input-bordered w-full" required />
+                                <input type="text" name="name" placeholder="Jasmine" className="input input-bordered w-full" required />
                             </div>
                             <div className="form-control">
                                 <label className="label pb-1"><span className="label-text font-semibold">Your Email:</span></label>
