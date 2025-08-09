@@ -28,12 +28,13 @@ const Footer = () => {
             <Link to="/foodGallery" className="hover:underline">
               Gallery
             </Link>
-            <Link to="/" className="hover:underline">
-              Contact US
-            </Link>
-            <Link to="/" className="hover:underline">
+            <Link to="/about-us" className="hover:underline">
               About US
             </Link>
+            <Link to="/contact-us" className="hover:underline">
+              Contact US
+            </Link>
+            
           </div>
         </div>
         <div className="border-t border-white/30 my-6"></div>
