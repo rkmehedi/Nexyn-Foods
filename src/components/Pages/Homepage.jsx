@@ -4,6 +4,7 @@ import Newslatter from "./Newslatter";
 import TopFoods from "./TopFoods";
 import WhyChooseUs from "./WhyChooseUs";
 import { Link } from "react-router";
+import Testimonials from "./Testimonials";
 
 const Homepage = () => {
   return (
@@ -26,6 +27,7 @@ const Homepage = () => {
       <TopFoods />
 
       <WhyChooseUs />
+      <Testimonials/>
       <Newslatter />
     </div>
   );
