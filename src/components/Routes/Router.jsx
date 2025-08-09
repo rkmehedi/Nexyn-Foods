@@ -10,6 +10,8 @@ import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import ErrorBig from "../Pages/ErrorBig";
 import Update from "../Pages/Update";
+import Contact from "../Pages/Contact";
+import About from "../Pages/About";
 
 import Layout from "../Layout";
 
@@ -88,6 +90,14 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register />,
+      },
+      {
+        path: "/contact-us",
+        element: <Contact />,
+      },
+      {
+        path: "/about-us",
+        element: <About />,
       },
     ],
   },

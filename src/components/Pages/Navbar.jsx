@@ -36,6 +36,8 @@ const Navbar = () => {
             <li><NavLink to="/" className="font-normal rounded-[10px]">Home</NavLink></li>
             <li><NavLink to="/foods" className="font-normal rounded-[10px]">All Foods</NavLink></li>
             <li><NavLink to="/foodGallery" className="font-normal rounded-[10px]">Gallery</NavLink></li>
+            <li><NavLink to="/contact-us" className="font-normal rounded-[10px]">Contact us</NavLink></li>
+            <li><NavLink to="/about-us" className="font-normal rounded-[10px]">About us</NavLink></li>
         </>
     );
 
