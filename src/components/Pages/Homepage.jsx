@@ -25,7 +25,6 @@ const Homepage = () => {
             </div>
       <Hero />
       <TopFoods />
-
       <WhyChooseUs />
       <Testimonials/>
       <Newslatter />
