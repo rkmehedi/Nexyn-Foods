@@ -6,11 +6,13 @@ const AllFood = () => {
   const [foods, setFoods] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [loading, setLoading] = useState(true);
-  const [sortOrder, setSortOrder] = useState("asc");
+  const [sortBy, setSortBy] = useState("food_name-asc");
 
   useEffect(() => {
     setLoading(true);
-    fetch(`https://nexyn-foods-server.vercel.app/foods?sort=${sortOrder}`)
+    const [sortField, sortOrder] = sortBy.split('-');
+
+    fetch(`https://nexyn-foods-server.vercel.app/foods?sortField=${sortField}&sortOrder=${sortOrder}`)
       .then((res) => res.json())
       .then((data) => {
         setFoods(data);
@@ -20,7 +22,7 @@ const AllFood = () => {
         console.error("Failed to fetch foods:", error);
         setLoading(false);
       });
-  }, [sortOrder]);
+  }, [sortBy]);
 
   const filteredFoods = foods.filter((food) =>
     food.food_name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -62,12 +64,15 @@ const AllFood = () => {
           </div>
           <div className="form-control w-full max-w-xs">
             <select
-              onChange={(e) => setSortOrder(e.target.value)}
+              onChange={(e) => setSortBy(e.target.value)}
               className="select select-bordered"
-              value={sortOrder}
+              value={sortBy}
             >
-              <option value="asc">Sort by Name (A-Z)</option>
-              <option value="desc">Sort by Name (Z-A)</option>
+              <option value="food_name-asc">Sort by Name (A-Z)</option>
+              <option value="food_name-desc">Sort by Name (Z-A)</option>
+              <option value="price-asc">Sort by Price (Low to High)</option>
+              <option value="price-desc">Sort by Price (High to Low)</option>
+              
             </select>
           </div>
         </div>
