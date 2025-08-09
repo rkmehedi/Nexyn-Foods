@@ -11,7 +11,7 @@ const ErrorSmall = ({ message }) => {
       <div className="absolute inset-0"></div>
 
       <div className="relative z-10 text-center max-w-2xl mx-auto px-4">
-        <h1 className="text-6xl font-extrabold text-yellow-400 mb-4 drop-shadow-md">
+        <h1 className="text-6xl font-extrabold text-[#56B4D3] mb-4 drop-shadow-md">
           Oops!
         </h1>
         <h2 className="text-3xl font-bold text-white mb-4">
